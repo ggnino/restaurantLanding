@@ -143,7 +143,7 @@ h6,
 	height: 100vh;
 	background-color: var(--background-color2);
 	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-		url(./imgs/menu.jpg);
+		url(./imgs/menu.png);
 	z-index: 10;
 }
 #menu {
@@ -276,7 +276,7 @@ h6,
 }
 #st {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-		url(./imgs/customer-info.jpg);
+		url(./imgs/customer-info.png);
 	overflow-y: auto;
 	overflow-x: hidden;
 }
@@ -289,7 +289,7 @@ h6,
 }
 #st2 {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-		url(./imgs/us.jpg);
+		url(./imgs/us.png);
 	border-top-right-radius: 1rem;
 	border-bottom-right-radius: 1rem;
 	border-right: 0.4rem solid black;
@@ -477,7 +477,7 @@ a {
 	border-left: 0.4rem solid black;
 	border-right: 0.4rem solid black;
 }
-
+/* Media queries */
 @media screen and (max-height: 1024px) {
 	.menu {
 		padding: 12rem;
