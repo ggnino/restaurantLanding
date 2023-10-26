@@ -15,6 +15,6 @@ Landing page is a simple and straight forward design for easy user navigation.
 # Getting Started
 
 <ol>
-<li>Clone this project <p><code>git@github.com:ggnino/restaurantLanding.git</code></p></li>
+<li>Clone this project <p><code>git clone https://github.com/ggnino/restaurantLanding.gitt</code></p></li>
 <li>Then run the <code>index.html</code> file</li>
 </ol>
