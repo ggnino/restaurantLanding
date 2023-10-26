@@ -6,7 +6,7 @@ Landing page is a simple and straight forward design for easy user navigation.
 
 # Live Demo
 
-https://ggnino.github.io/restaurantLanding/
+<a href="https://ggnino.github.io/restaurantLanding/" target="_blank" rel="no-referrer">La Tierra Page</a>
 
 # Built With
 
