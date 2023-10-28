@@ -1,17 +1,18 @@
-import "./menu-styles.scss";
-function menu() {
+import { createMyElements } from "../../utils/utils-functions";
+import "./menu-component-styles.scss";
+function menuComponent() {
   /*
    *********************** Create component elements ***************************************
    */
   const menuSectionElement = document.createElement("section");
   const menuItemsContainer = document.createElement("div");
   const menuTitleElement = document.createElement("h2");
-  const menuItemContainer = document.createElement("div");
+  const menuItemsRow1Container = document.createElement("div");
+  const menuItemsRow2Container = document.createElement("div");
   const menuHighlightsContainer = document.createElement("h2");
+  const menuHighlights = createMyElements("menu-highlights", 3);
   const menuHighlight = document.createElement("h3");
-  const menuItem = document.createElement("div");
-  const menuItemImg = document.createElement("img");
-  const menuItemDesc = document.createElement("p");
+  const menuBtn = document.createElement("button");
 
   /*
    *********************** Set component elements attribute ***************************************
@@ -26,18 +27,45 @@ function menu() {
     "class",
     "menu-items flex flex-col flex-center border border-radius-md"
   );
+  menuTitleElement.setAttribute("class", "title border border-radius-md");
+  menuItemsRow1Container.setAttribute("class", "flex menu-items-row");
+  menuItemsRow2Container.setAttribute(
+    "class",
+    "flex menu-items-row menu-items-row-2"
+  );
+  menuHighlightsContainer.setAttribute(
+    "class",
+    "menu-highlights flex flex-col flex-center border border-radius-sm "
+  );
+  menuHighlight.setAttribute("class", "menu-highlights-highlight");
+  menuBtn.setAttribute("class", "btn border border-radius-md");
 
   /*
    *********************** Set component elements content ***************************************
    */
 
+  menuTitleElement.textContent = "A taste of what we are cooking";
+  menuHighlight.textContent = "Menu Highlights";
+  menuBtn.textContent = "Full Menu";
+
   /*
    *********************** Add component elements ***************************************
    */
+
+  menuHighlightsContainer.appendChild(menuHighlight);
+  menuItemsRow1Container.append(menuHighlightsContainer, menuHighlights[0]);
+  menuItemsRow2Container.append(menuHighlights[1], menuHighlights[2]);
+  menuItemsContainer.append(
+    menuTitleElement,
+    menuItemsRow1Container,
+    menuItemsRow2Container,
+    menuBtn
+  );
+  menuSectionElement.append(menuItemsContainer);
   return menuSectionElement;
 }
 
-export default menu;
+export default menuComponent;
 /*
 
 ******************** Component Blueprint *********************************

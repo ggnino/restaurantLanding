@@ -31,7 +31,7 @@ function headingComponent() {
   );
   headerElement.setAttribute("id", "home");
   headerBtn.setAttribute("href", "#menu");
-  headerBtn.setAttribute("class", "btn border-radius-md");
+  headerBtn.setAttribute("class", "btn border border-radius-md");
 
   /*
    *********************** Set component elements content ***************************************
