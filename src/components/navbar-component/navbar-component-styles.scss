@@ -1,0 +1,42 @@
+@use "../../assets/styles/variables.scss" as _;
+.nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  background-color: _.$bg-color;
+  box-shadow: 0 0 2.5rem 0.5rem black;
+  color: white;
+  width: 100%;
+  z-index: 1;
+
+  &-logo {
+    padding: 2.2rem 13rem;
+    font-size: 3rem;
+    width: 30%;
+    cursor: default;
+  }
+  &-items {
+    list-style: none;
+    width: 100%;
+
+    &-item {
+      font-size: 2rem;
+
+      background-color: transparent;
+      transition: all 0.2s linear;
+      &-link {
+        display: inline-block;
+        text-decoration: none;
+        color: var(--font-color);
+        transition: all 0.2s linear;
+        padding: 3rem 5rem;
+        background-color: transparent;
+      }
+    }
+    &-item:hover {
+      background-color: _.$bg-color2;
+      color: gold;
+    }
+  }
+}

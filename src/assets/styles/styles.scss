@@ -1,0 +1,56 @@
+@use "./variables.scss" as _;
+
+/* Defaults */
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+  scrollbar-width: thin;
+  scrollbar-color: _.$bg-color _.$bg-color3;
+}
+html ::-webkit-scrollbar {
+  width: 1rem;
+}
+html ::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+html ::-webkit-scrollbar-thumb {
+  background-color: #31572cc0;
+  border: 0.2rem solid _.$bg-color3;
+  border-radius: 1rem;
+}
+html ::-webkit-scrollbar-thumb:hover {
+  border: 0.2rem solid gold;
+}
+body {
+  color: _.$font-color;
+  font-family: "Kalam", cursive;
+  background-color: _.$bg-color;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+}
+a:hover {
+  color: _.$bg-color3;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+.btn {
+  font-family: "Shantell Sans", cursive;
+}
+#content {
+  margin-top: 9.5vh;
+  height: calc(100vh - 9.5vh);
+  background-color: black;
+}

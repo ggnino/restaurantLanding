@@ -1,0 +1,33 @@
+@use "../../assets/styles/variables.scss" as _;
+
+.heading {
+  height: 100%;
+  width: 50%;
+  min-width: 80rem;
+  background-color: rgba(_.$bg-color, 0.7);
+  transition: all 0.5s;
+  overflow-y: hidden;
+
+  &-container {
+    transition: all 0.2s;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+      url("../../assets/imgs/about-bg.png");
+    width: 100%;
+    height: 90.5vh;
+  }
+  &-group {
+    width: 100%;
+    color: _.$font-color;
+    cursor: default;
+    padding: 5rem;
+    text-align: center;
+    gap: 5rem;
+
+    & > h1 {
+      font-size: 15rem;
+    }
+    & > p {
+      font-size: 5rem;
+    }
+  }
+}
