@@ -1,5 +1,5 @@
 import "./navbar-component-styles.scss";
-import { createMyElements } from "../utils/utils-functions";
+import { createMyElements } from "../../utils/utils-functions";
 export default function navbar() {
   /*
    *********************** Create component elements ***************************************
