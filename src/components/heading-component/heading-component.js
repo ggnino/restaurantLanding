@@ -1,6 +1,9 @@
 import "./heading-component-styles.scss";
 
 function headingComponent() {
+  /*
+   *********************** Create component elements ***************************************
+   */
   const headingContainer = document.createElement("div");
   const headerElement = document.createElement("header");
   const headerContentContainer = document.createElement("div");
@@ -9,10 +12,9 @@ function headingComponent() {
   const headerContentMsg2 = document.createElement("p");
   const headerBtn = document.createElement("a");
 
-  headerContentHeading.textContent = "Tierra";
-  headerContentMsg1.textContent = "Welcome to";
-  headerContentMsg2.textContent = "The best plant-based restaurant in town.";
-  headerBtn.textContent = "Order Now";
+  /*
+   *********************** Set component elements attribute ***************************************
+   */
 
   headerContentContainer.setAttribute(
     "class",
@@ -30,6 +32,19 @@ function headingComponent() {
   headerElement.setAttribute("id", "home");
   headerBtn.setAttribute("href", "#menu");
   headerBtn.setAttribute("class", "btn border-radius-md");
+
+  /*
+   *********************** Set component elements content ***************************************
+   */
+
+  headerContentHeading.textContent = "Tierra";
+  headerContentMsg1.textContent = "Welcome to";
+  headerContentMsg2.textContent = "The best plant-based restaurant in town.";
+  headerBtn.textContent = "Order Now";
+
+  /*
+   *********************** Add component elements ***************************************
+   */
 
   headerContentContainer.append(
     headerContentMsg1,

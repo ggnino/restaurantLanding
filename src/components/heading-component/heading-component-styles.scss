@@ -2,7 +2,7 @@
 
 .heading {
   height: 100%;
-  width: 50%;
+  width: clamp(50%, 150rem, 80%);
   min-width: 80rem;
   background-color: rgba(_.$bg-color, 0.7);
   transition: all 0.5s;
