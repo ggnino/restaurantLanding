@@ -6,7 +6,7 @@
   align-items: center;
   z-index: 2;
   background-color: _.$bg-color;
-  background-image: url("../../assets/imgs/restauarant1.jpg");
+  background-image: _.$my-filter, url("../../assets/imgs/restauarant1.jpg");
 
   &-container {
     position: relative;
@@ -28,22 +28,19 @@
     }
 
     & > div:first-of-type {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("../../assets/imgs/about-bg.png");
+      background-image: _.$my-filter, url("../../assets/imgs/about-bg.png");
       border-top-left-radius: 1rem;
       border-top-right-radius: 1rem;
     }
 
     & > div:first-of-type + div {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("../../assets/imgs/customer-info.png");
+      background-image: _.$my-filter, url("../../assets/imgs/customer-info.png");
       overflow-y: auto;
       overflow-x: hidden;
     }
 
     & > div:last-child {
-      background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-        url("../../assets/imgs/us.png");
+      background-image: _.$my-filter, url("../../assets/imgs/us.png");
       border-bottom-left-radius: 1rem;
       border-bottom-right-radius: 1rem;
     }

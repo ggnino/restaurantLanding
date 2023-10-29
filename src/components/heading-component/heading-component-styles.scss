@@ -9,8 +9,7 @@
 
   &-container {
     transition: all 0.2s;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-      url("../../assets/imgs/about-bg.png");
+    background-image: _.$my-filter, url("../../assets/imgs/about-bg.png");
     width: 100%;
     height: _.$my-height;
     // display: none;

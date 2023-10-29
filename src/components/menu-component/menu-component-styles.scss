@@ -3,8 +3,7 @@
   width: 100%;
   height: _.$my-height;
   background-color: _.$bg-color2;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("../../assets/imgs/menu.png");
+  background-image: _.$my-filter, url("../../assets/imgs/menu.png");
   z-index: 10;
   // display: none;
 
