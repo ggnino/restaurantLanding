@@ -1,0 +1,16 @@
+@use "../../assets/styles/variables.scss" as _;
+footer {
+  border-top: 1.4rem solid black;
+  text-align: center;
+  font-size: 2rem;
+  background-color: _.$bg-color3;
+  padding: 2rem;
+}
+footer p {
+  font-size: 2.6rem;
+  width: clamp(20%, 80rem, 50%);
+  background-color: _.$bg-color;
+  margin: 0 auto;
+  padding: 2rem 0;
+  cursor: default;
+}
