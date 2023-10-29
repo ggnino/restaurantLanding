@@ -69,7 +69,9 @@ function createMyElements(element, num) {
         plant-based food. Fried to a cripsy perfection with those lovely
         fries, you will be wondering how good will this taste on a sandwich?`;
       }
+
       menuItemContainer.append(menuItemImg, menuItemDesc);
+      eventAdder(menuItemContainer);
       elements.push(menuItemContainer);
     } else if (element === "about-us") {
       const aboutUsContentContainer = document.createElement("div");
@@ -131,4 +133,35 @@ function createMyElements(element, num) {
   }
   return elements;
 }
-export { createMyElements };
+
+function eventAdder(element) {
+  element.onmouseenter = menuItemHover;
+  element.onmouseleave = menuItemHover;
+}
+
+const menuItemHover = (e) => {
+  const menuHighlight = document.getElementById("menu-highlight");
+  const element = e.target.id;
+  const event = e.type;
+  const text = "Menu Highlights";
+
+  console.log(element);
+
+  if (event === "mouseenter") {
+    if (element === "burger") {
+      menuHighlight.textContent = "The Green Giant";
+    }
+
+    if (element === "chicken") {
+      menuHighlight.textContent = "Fried Chik'n and Fries";
+    }
+
+    if (element === "steak") {
+      menuHighlight.textContent = "Churrasco Verde";
+    }
+  } else if (event === "mouseleave") {
+    // default text
+    menuHighlight.textContent = text;
+  }
+};
+export { createMyElements, menuItemHover };

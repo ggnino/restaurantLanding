@@ -33,6 +33,7 @@ function menuComponent() {
     "class",
     "flex menu-items-row menu-items-row-2"
   );
+  menuHighlightsContainer.setAttribute("id", "menu-highlight");
   menuHighlightsContainer.setAttribute(
     "class",
     "menu-highlights flex flex-col flex-center border border-radius-sm "

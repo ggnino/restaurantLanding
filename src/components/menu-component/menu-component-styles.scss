@@ -38,6 +38,12 @@
 
       & .description {
         font-size: 2rem;
+        opacity: 0;
+        transition: all 0.2s linear;
+
+        &:hover {
+          opacity: 1;
+        }
       }
     }
   }
@@ -54,10 +60,7 @@
     max-height: 30rem;
     background-color: _.$bg-color;
     text-align: center;
-
-    &-highlight {
-      transition: all 1.5s;
-      font-size: 5rem;
-    }
+    transition: all 1.5s;
+    font-size: 5rem;
   }
 }
