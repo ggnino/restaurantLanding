@@ -46,11 +46,20 @@ h4,
 h5,
 h6,
 a,
+label,
 .btn {
-  font-family: "Shantell Sans", cursive;
+  font-family: "Agbalumo", cursive;
 }
 #content {
   margin-top: 7.5vh;
   height: calc(100vh - 7.5vh);
   background-color: black;
+}
+p,
+input,
+textarea,
+span,
+:placeholder-shown {
+  font-family: "Labrada", serif;
+  font-weight: 600;
 }

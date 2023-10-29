@@ -6,6 +6,7 @@
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
     url("../../assets/imgs/menu.png");
   z-index: 10;
+  // display: none;
 
   &-items {
     position: relative;
@@ -37,7 +38,7 @@
       transform: scale(1);
 
       & .description {
-        font-size: 2.2rem;
+        font-size: 2rem;
       }
     }
   }
