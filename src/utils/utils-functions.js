@@ -1,3 +1,9 @@
+const links = {
+  home: false,
+  menu: false,
+  about: false,
+};
+
 function createMyElements(element, num) {
   const elements = [];
 
@@ -5,22 +11,28 @@ function createMyElements(element, num) {
     if (element === "nav") {
       const liElement = document.createElement("li");
       const navLink = document.createElement("a");
-      liElement.setAttribute("class", "nav-items-item border-radius-sm");
+      liElement.setAttribute("class", "nav-items-item");
 
       if (x === 0) {
-        navLink.setAttribute("href", "#home");
-        navLink.setAttribute("class", "nav-items-item-link");
+        navLink.setAttribute("id", "home");
+        navLink.setAttribute("href", "#");
+        navLink.setAttribute("class", "nav-items-item-link  border-top-radius");
         navLink.textContent = "Home";
       } else if (x === 1) {
-        navLink.setAttribute("href", "#menu");
-        navLink.setAttribute("class", "nav-items-item-link");
+        navLink.setAttribute("id", "menu");
+        navLink.setAttribute("href", "#");
+        navLink.setAttribute("class", "nav-items-item-link  border-top-radius");
         navLink.textContent = "Menu";
       } else {
-        navLink.setAttribute("href", "#about-us");
-        navLink.setAttribute("class", "nav-items-item-link ");
+        navLink.setAttribute("id", "about");
+        navLink.setAttribute("href", "#");
+        navLink.setAttribute(
+          "class",
+          "nav-items-item-link  border-top-radius "
+        );
         navLink.textContent = "About";
       }
-
+      eventAdder(navLink, "nav");
       liElement.appendChild(navLink);
 
       elements.push(liElement);
@@ -76,17 +88,20 @@ function createMyElements(element, num) {
     } else if (element === "about-us") {
       const aboutUsContentContainer = document.createElement("div");
       const aboutUsContentElement = document.createElement("p");
+      const classNames =
+        "about-us-container flex flex-col flex-center bg-img-center border";
 
-      aboutUsContentContainer.setAttribute(
-        "class",
-        "about-us-container flex flex-col flex-center bg-img-center border"
-      );
+      aboutUsContentContainer.setAttribute("class", classNames);
       aboutUsContentElement.setAttribute(
         "class",
         "description flex border-radius-md"
       );
 
       if (x === 0) {
+        aboutUsContentContainer.setAttribute(
+          "class",
+          classNames + " border-top-radius"
+        );
         aboutUsContentElement.textContent =
           "We here at Tierra, are very concerned with our planet mother earth. One of the biggest threats to mother earth is climate change and one of the factors affecting that climate change, is factory farming. We must change our eating habits so we can ease the damage caused by intensive animal farming. We have dedicated our lives to help our society transition from consuming animal products to plant-based products.";
       } else
@@ -134,12 +149,95 @@ function createMyElements(element, num) {
   return elements;
 }
 
-function eventAdder(element) {
-  element.onmouseenter = menuItemHover;
-  element.onmouseleave = menuItemHover;
+function resetNavLinks(element) {
+  const { navLinks } = getMyElements();
+
+  for (let props in navLinks) {
+    if (!isNaN(props) && navLinks[props].id !== element.id) {
+      navLinks[props].style.color = "white";
+      navLinks[props].style.backgroundColor = "transparent";
+    }
+  }
+}
+function setSelection(id) {
+  for (let prop in links) {
+    links[prop] = false;
+  }
+  links[id] = !links[id];
 }
 
-const menuItemHover = (e) => {
+function getSelection() {
+  return links;
+}
+function getMyElements() {
+  const navLinks = document.getElementsByClassName("nav-items-item-link");
+  const homeElement = document.getElementById("home-page");
+  const menuElement = document.getElementById("menu-view");
+  const aboutUsElement = document.getElementById("about-us");
+
+  return { homeElement, menuElement, aboutUsElement, navLinks };
+}
+function navClick(e) {
+  const { homeElement, menuElement, aboutUsElement } = getMyElements();
+  const targetStyle = e.target.style;
+  targetStyle.backgroundColor = "black";
+  targetStyle.color = "gold";
+  setSelection(e.target.id);
+  resetNavLinks(e.target);
+  if (e.target.id === "about") {
+    homeElement.style.opacity = 0;
+    menuElement.style.opacity = 0;
+    aboutUsElement.style.display = "flex";
+    homeElement.style.display = "none";
+    menuElement.style.display = "none";
+    setTimeout(() => {
+      aboutUsElement.style.opacity = 1;
+    }, 100);
+  } else if (e.target.id === "home") {
+    aboutUsElement.style.opacity = 0;
+    menuElement.style.opacity = 0;
+    homeElement.style.display = "flex";
+    aboutUsElement.style.display = "none";
+    menuElement.style.display = "none";
+    setTimeout(() => {
+      homeElement.style.opacity = 1;
+    }, 100);
+  } else if (e.target.id === "menu") {
+    homeElement.style.opacity = 0;
+    aboutUsElement.style.opacity = 0;
+    menuElement.style.display = "flex";
+    homeElement.style.display = "none";
+    aboutUsElement.style.display = "none";
+    setTimeout(() => {
+      menuElement.style.opacity = 1;
+    }, 100);
+  }
+}
+
+function eventAdder(element, type = null) {
+  if (type === "nav") {
+    element.onclick = navClick;
+    element.onmouseenter = navHover;
+    element.onmouseleave = navHover;
+  } else {
+    element.onmouseenter = menuItemHover;
+    element.onmouseleave = menuItemHover;
+  }
+}
+function navHover(e) {
+  const event = e.type;
+  const selected = getSelection();
+
+  if (event === "mouseenter" && !selected[e.target.id]) {
+    e.target.style.backgroundColor = "black";
+    e.target.style.color = "gold";
+  } else if (event === "mouseleave" && !selected[e.target.id]) {
+    e.target.style.backgroundColor = "";
+    e.target.style.color = "";
+  }
+}
+
+function menuItemHover(e) {
   const menuHighlight = document.getElementById("menu-highlight");
   const element = e.target.id;
   const event = e.type;
@@ -163,5 +261,5 @@ const menuItemHover = (e) => {
     // default text
     menuHighlight.textContent = text;
   }
-};
+}
 export { createMyElements, menuItemHover };
