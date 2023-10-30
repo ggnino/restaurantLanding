@@ -203,38 +203,32 @@ function navClick(e) {
   resetNavLinks(e.target);
 
   if (e.target.id === "about") {
-    homeElement.style.opacity = 0;
-    menuElement.style.opacity = 0;
-    aboutUsElement.style.display = "flex";
-    homeElement.style.display = "none";
-    menuElement.style.display = "none";
-    setTimeout(() => {
-      aboutUsElement.style.opacity = 1;
-    }, 100);
+    toggleElements(homeElement, menuElement, aboutUsElement);
   } else if (e.target.id === "home") {
-    aboutUsElement.style.opacity = 0;
-    menuElement.style.opacity = 0;
-    homeElement.style.display = "flex";
-    aboutUsElement.style.display = "none";
-    menuElement.style.display = "none";
-    setTimeout(() => {
-      homeElement.style.opacity = 1;
-    }, 100);
+    toggleElements(aboutUsElement, menuElement, homeElement);
   } else if (e.target.id === "menu" || headerBtn) {
     if (headerBtn && navLink) {
       navLink.style.color = "gold";
       navLink.style.backgroundColor = "black";
     }
-    homeElement.style.opacity = 0;
-    aboutUsElement.style.opacity = 0;
-    menuElement.style.display = "flex";
-    homeElement.style.display = "none";
-    aboutUsElement.style.display = "none";
-    setTimeout(() => {
-      menuElement.style.opacity = 1;
-    }, 100);
+    toggleElements(homeElement, aboutUsElement, menuElement);
   }
 }
+// function for hiding and showing page elements
+function toggleElements(element1, element2, element3) {
+  element1.style.opacity = 0;
+  element2.style.opacity = 0;
+
+  element3.style.display = "flex";
+
+  element1.style.display = "none";
+  element2.style.display = "none";
+
+  setTimeout(() => {
+    element3.style.opacity = 1;
+  }, 100);
+}
+
 // function for adding events to elements
 function eventAdder(element, type = null) {
   if (type === "nav" || type === "headerBtn") {
