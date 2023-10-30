@@ -12,13 +12,14 @@ Landing page is a simple and straight forward design for easy user navigation.
 
 <ul>
 <li>HTML</li>
-<li>CSS</li>
+<li>SCSS</li>
 <li>Javascript</li>
+<li>Webpack</li>
 </ul>
 
 # Getting Started
 
 <ol>
 <li>Clone this project <p><code>git clone https://github.com/ggnino/restaurantLanding.git</code></p></li>
-<li>Then run the <code>index.html</code> file</li>
+<li>Run the <code>npm start</code> command. Then open the <code>index.html</code> file, in the dist directory.</li>
 </ol>
