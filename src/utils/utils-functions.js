@@ -4,10 +4,12 @@ const links = {
   about: false,
 };
 
+// function for creating multiple instances of the same element
 function createMyElements(element, num) {
   const elements = [];
 
   for (let x = 0; x < num; x++) {
+    // creating multiple nav links
     if (element === "nav") {
       const liElement = document.createElement("li");
       const navLink = document.createElement("a");
@@ -36,7 +38,9 @@ function createMyElements(element, num) {
       liElement.appendChild(navLink);
 
       elements.push(liElement);
-    } else if (element === "menu-highlights") {
+    }
+    // creating multiple menu item elements
+    else if (element === "menu-highlights") {
       const menuItemContainer = document.createElement("div");
       const menuItemImg = document.createElement("img");
       const menuItemDesc = document.createElement("p");
@@ -85,7 +89,9 @@ function createMyElements(element, num) {
       menuItemContainer.append(menuItemImg, menuItemDesc);
       eventAdder(menuItemContainer);
       elements.push(menuItemContainer);
-    } else if (element === "about-us") {
+    }
+    // creating multiple about-us content elements
+    else if (element === "about-us") {
       const aboutUsContentContainer = document.createElement("div");
       const aboutUsContentElement = document.createElement("p");
       const classNames =
@@ -110,7 +116,9 @@ function createMyElements(element, num) {
 
       aboutUsContentContainer.appendChild(aboutUsContentElement);
       elements.push(aboutUsContentContainer);
-    } else if (element === "form") {
+    }
+    // creating multiple form elements
+    else if (element === "form") {
       const formFieldSet = document.createElement("fieldset");
       const formInput = document.createElement("input");
       const textArea = document.createElement("textarea");
@@ -148,7 +156,7 @@ function createMyElements(element, num) {
   }
   return elements;
 }
-
+// function for resetting style for nav links
 function resetNavLinks(element) {
   const { navLinks } = getMyElements();
 
@@ -159,16 +167,18 @@ function resetNavLinks(element) {
     }
   }
 }
+// function for setting nav selection
 function setSelection(id) {
   for (let prop in links) {
     links[prop] = false;
   }
   links[id] = !links[id];
 }
-
+// function for getting nav seletion
 function getSelection() {
   return links;
 }
+// function for getting necessary elements
 function getMyElements() {
   const navLinks = document.getElementsByClassName("nav-items-item-link");
   const homeElement = document.getElementById("home-page");
@@ -177,13 +187,23 @@ function getMyElements() {
 
   return { homeElement, menuElement, aboutUsElement, navLinks };
 }
+// handler function for nav link click
 function navClick(e) {
-  const { homeElement, menuElement, aboutUsElement } = getMyElements();
-  const targetStyle = e.target.style;
-  targetStyle.backgroundColor = "black";
-  targetStyle.color = "gold";
-  setSelection(e.target.id);
+  const { homeElement, menuElement, aboutUsElement, navLinks } =
+    getMyElements();
+
+  const headerBtn = e.target.className.includes("btn") ? "menu" : null;
+  let navLink = null;
+
+  headerBtn ? setSelection(headerBtn) : setSelection(e.target.id);
+
+  for (let prop in navLinks) {
+    if (navLinks[prop].id === "menu") {
+      navLink = navLinks[prop];
+    }
+  }
   resetNavLinks(e.target);
+
   if (e.target.id === "about") {
     homeElement.style.opacity = 0;
     menuElement.style.opacity = 0;
@@ -202,7 +222,11 @@ function navClick(e) {
     setTimeout(() => {
       homeElement.style.opacity = 1;
     }, 100);
-  } else if (e.target.id === "menu") {
+  } else if (e.target.id === "menu" || headerBtn) {
+    if (headerBtn && navLink) {
+      navLink.style.color = "gold";
+      navLink.style.backgroundColor = "black";
+    }
     homeElement.style.opacity = 0;
     aboutUsElement.style.opacity = 0;
     menuElement.style.display = "flex";
@@ -213,17 +237,20 @@ function navClick(e) {
     }, 100);
   }
 }
-
+// function for adding events to elements
 function eventAdder(element, type = null) {
-  if (type === "nav") {
+  if (type === "nav" || type === "headerBtn") {
     element.onclick = navClick;
-    element.onmouseenter = navHover;
-    element.onmouseleave = navHover;
+    if (type === "nav") {
+      element.onmouseenter = navHover;
+      element.onmouseleave = navHover;
+    }
   } else {
     element.onmouseenter = menuItemHover;
     element.onmouseleave = menuItemHover;
   }
 }
+// handler function for nav link hover
 function navHover(e) {
   const event = e.type;
   const selected = getSelection();
@@ -236,14 +263,12 @@ function navHover(e) {
     e.target.style.color = "";
   }
 }
-
+// handler function for menu item hover
 function menuItemHover(e) {
   const menuHighlight = document.getElementById("menu-highlight");
   const element = e.target.id;
   const event = e.type;
   const text = "Menu Highlights";
-
-  console.log(element);
 
   if (event === "mouseenter") {
     if (element === "burger") {
@@ -258,8 +283,7 @@ function menuItemHover(e) {
       menuHighlight.textContent = "Churrasco Verde";
     }
   } else if (event === "mouseleave") {
-    // default text
     menuHighlight.textContent = text;
   }
 }
-export { createMyElements, menuItemHover };
+export { createMyElements, menuItemHover, eventAdder };
