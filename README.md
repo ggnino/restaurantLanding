@@ -22,5 +22,5 @@ Needs the mobile responsiveness update, will update soon.
 
 <ol>
 <li>Clone this project <p><code>git clone https://github.com/ggnino/restaurantLanding.git</code></p></li>
-<li>Run the <code>npm start</code> command. Then open the <code>index.html</code> file, in the dist directory.</li>
+<li>Open the <code>index.html</code> file, in the dist directory.</li>
 </ol>
