@@ -17,10 +17,10 @@ function menuComponent() {
   /*
    *********************** Set component elements attribute ***************************************
    */
-  menuSectionElement.setAttribute("id", "menu");
+  menuSectionElement.setAttribute("id", "menu-view");
   menuSectionElement.setAttribute(
     "class",
-    "menu flex flex-col flex-center bg-img-center border-topAndBottom"
+    "menu flex flex-col flex-center bg-img-center border-topAndBottom transition-page"
   );
   menuSectionElement.setAttribute("tabindex", 0);
   menuItemsContainer.setAttribute(

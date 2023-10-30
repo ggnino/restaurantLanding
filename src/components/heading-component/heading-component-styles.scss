@@ -4,15 +4,11 @@
   height: 100%;
   width: clamp(50%, 150rem, 80%);
   background-color: rgba(_.$bg-color, 0.7);
-  transition: all 0.5s;
-  overflow-y: hidden;
 
   &-container {
-    transition: all 0.2s;
     background-image: _.$my-filter, url("../../assets/imgs/about-bg.png");
     width: 100%;
     height: _.$my-height;
-    // display: none;
   }
   &-group {
     width: 100%;

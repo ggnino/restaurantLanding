@@ -5,7 +5,8 @@
   background-color: _.$bg-color2;
   background-image: _.$my-filter, url("../../assets/imgs/menu.png");
   z-index: 10;
-  // display: none;
+  display: none;
+  opacity: 0;
 
   &-items {
     position: relative;

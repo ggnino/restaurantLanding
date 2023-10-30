@@ -1,3 +1,4 @@
+import { eventAdder } from "../../utils/utils-functions";
 import "./heading-component-styles.scss";
 
 function headingComponent() {
@@ -15,15 +16,15 @@ function headingComponent() {
   /*
    *********************** Set component elements attribute ***************************************
    */
-
+  headingContainer.setAttribute("id", "home-page");
   headerContentContainer.setAttribute(
     "class",
-    "heading-group flex flex-col flex-center"
+    "heading-group flex flex-col flex-center "
   );
   headerContentContainer.setAttribute("id", "hgroup");
   headingContainer.setAttribute(
     "class",
-    "heading-container flex flex-row flex-center bg-img-center"
+    "heading-container flex flex-row flex-center bg-img-center transition-page"
   );
   headerElement.setAttribute(
     "class",
@@ -45,7 +46,7 @@ function headingComponent() {
   /*
    *********************** Add component elements ***************************************
    */
-
+  eventAdder(headerBtn, "headerBtn");
   headerContentContainer.append(
     headerContentMsg1,
     headerContentHeading,

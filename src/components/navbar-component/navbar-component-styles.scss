@@ -32,11 +32,8 @@
         transition: all 0.2s linear;
         padding: 3rem 5rem;
         background-color: transparent;
+        color: _.$font-color;
       }
-    }
-    &-item:hover {
-      background-color: _.$bg-color2;
-      color: gold;
     }
   }
 }

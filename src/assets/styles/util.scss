@@ -18,10 +18,19 @@
   &-radius-sm {
     border-radius: 0.5rem;
   }
+  &-top-radius {
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
 
   &-bottom {
     border-bottom: 1.4rem solid black;
+    &-radius {
+      border-bottom-left-radius: 1rem;
+      border-bottom-right-radius: 1rem;
+    }
   }
+
   &-radius-md {
     border-radius: 1rem;
   }
@@ -56,6 +65,15 @@ a {
     transform: scale(1.2);
     color: gold;
   }
+}
+
+.transition-page {
+  transition: all 0.5s ease-in;
+}
+.title,
+.description,
+.menu-highlights {
+  cursor: default;
 }
 
 .title {

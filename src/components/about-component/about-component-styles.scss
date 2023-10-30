@@ -7,6 +7,8 @@
   z-index: 2;
   background-color: _.$bg-color;
   background-image: _.$my-filter, url("../../assets/imgs/restauarant1.jpg");
+  display: none;
+  opacity: 0;
 
   &-container {
     position: relative;
@@ -29,8 +31,6 @@
 
     & > div:first-of-type {
       background-image: _.$my-filter, url("../../assets/imgs/about-bg.png");
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
     }
 
     & > div:first-of-type + div {
@@ -41,8 +41,6 @@
 
     & > div:last-child {
       background-image: _.$my-filter, url("../../assets/imgs/us.png");
-      border-bottom-left-radius: 1rem;
-      border-bottom-right-radius: 1rem;
     }
   }
   & .description {
@@ -53,8 +51,8 @@
     max-width: 70rem;
     max-height: 70rem;
     background-color: transparent;
-    transition: all 0.5s;
-    cursor: default;
+    transition: all 0.2s;
+
     &:hover {
       background-color: rgba(_.$bg-color, 0.9);
     }
