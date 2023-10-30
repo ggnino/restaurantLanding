@@ -1,3 +1,7 @@
+import burgerImg from "../assets/imgs/vegan-burger.jpg";
+import chickenImg from "../assets/imgs/chik'n-and-fries.png";
+import steakImg from "../assets/imgs/vegan-steak-and-potatoes.jpg";
+
 const links = {
   home: false,
   menu: false,
@@ -53,7 +57,7 @@ function createMyElements(element, num) {
 
       if (x === 0) {
         menuItemContainer.setAttribute("id", "burger");
-        menuItemImg.setAttribute("src", "../src/assets/imgs/vegan-burger.jpg");
+        menuItemImg.setAttribute("src", burgerImg);
         menuItemDesc.textContent = `Our vegan burger will leave you stunned by the flavor. Our
         homemade burger patties are not like any other bland patty, ours
         come packed with protein, plenty of herbs and
@@ -63,10 +67,7 @@ function createMyElements(element, num) {
         good a plant based burger can really be.`;
       } else if (x === 1) {
         menuItemContainer.setAttribute("id", "steak");
-        menuItemImg.setAttribute(
-          "src",
-          "../src/assets/imgs/vegan-steak-and-potatoes.jpg"
-        );
+        menuItemImg.setAttribute("src", steakImg);
         menuItemDesc.textContent = `Yes, that is right, we have steak and of course its plant-based.
         Our homemade steak is based off of gluten.
         Seasoned to perfection, you'll love those hints of oregano and
@@ -75,10 +76,7 @@ function createMyElements(element, num) {
         why haven't I changed to plant-based diet, yet?`;
       } else {
         menuItemContainer.setAttribute("id", "chicken");
-        menuItemImg.setAttribute(
-          "src",
-          "../src/assets/imgs/chik'n-and-fries.png"
-        );
+        menuItemImg.setAttribute("src", chickenImg);
         menuItemDesc.textContent = `A plant-based spin on a lovely classic, that we all enjoy. Our
         fried chik'n is more that just finger licking good, it just
         defies everything that you might know about food, especially
