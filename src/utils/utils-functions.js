@@ -194,36 +194,39 @@ function getMyElements() {
 }
 // handler function for clicks
 function clickHandler(e) {
-  const { homeElement, menuElement, aboutUsElement, navLinks } =
-    getMyElements();
+  const { homeElement, menuElement, aboutUsElement } = getMyElements();
 
   const headerBtn = e.target.className.includes("btn") ? "menu" : null;
-  let navLink = null;
 
   headerBtn ? setSelection(headerBtn) : setSelection(e.target.id);
+  // resets nav link styling
+  resetNavLinks(e.target);
 
+  if (headerBtn) setNavLinkStyle(headerBtn);
+  else setNavLinkStyle(e.target.id);
+
+  if (e.target.id === "about") {
+    togglePageElements(homeElement, menuElement, aboutUsElement);
+  } else if (e.target.id === "home") {
+    togglePageElements(aboutUsElement, menuElement, homeElement);
+  } else if (e.target.id === "menu" || headerBtn) {
+    togglePageElements(homeElement, aboutUsElement, menuElement);
+  }
+}
+// function for setting navLink style
+function setNavLinkStyle(id) {
+  const { navLinks } = getMyElements();
+  let navLink = null;
   for (let prop in navLinks) {
-    if (navLinks[prop].id === "menu") {
+    if (navLinks[prop].id === id) {
       navLink = navLinks[prop];
     }
   }
-  resetNavLinks(e.target);
-
-  if (e.target.id === "about") {
-    toggleElements(homeElement, menuElement, aboutUsElement);
-  } else if (e.target.id === "home") {
-    toggleElements(aboutUsElement, menuElement, homeElement);
-  } else if (e.target.id === "menu" || headerBtn) {
-    // clicked order btn, color menu nav link
-    if (headerBtn && navLink) {
-      navLink.style.color = "gold";
-      navLink.style.backgroundColor = "black";
-    }
-    toggleElements(homeElement, aboutUsElement, menuElement);
-  }
+  navLink.style.color = "gold";
+  navLink.style.backgroundColor = "black";
 }
 // function for hiding and showing page elements
-function toggleElements(element1, element2, element3) {
+function togglePageElements(element1, element2, element3) {
   element1.style.opacity = 0;
   element2.style.opacity = 0;
 
@@ -258,7 +261,7 @@ function navHover(e) {
   const event = e.type;
   const selected = getSelection();
 
-  if (event === "mouseenter" && !selected[e.target.id]) {
+  if (event === "mouseenter") {
     e.target.style.backgroundColor = "black";
     e.target.style.color = "gold";
   } else if (event === "mouseleave" && !selected[e.target.id]) {
