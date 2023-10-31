@@ -17,6 +17,7 @@ function createMyElements(element, num) {
     if (element === "nav") {
       const liElement = document.createElement("li");
       const navLink = document.createElement("a");
+
       liElement.setAttribute("class", "nav-items-item");
 
       if (x === 0) {
@@ -38,7 +39,9 @@ function createMyElements(element, num) {
         );
         navLink.textContent = "About";
       }
+
       eventAdder(navLink, "nav");
+
       liElement.appendChild(navLink);
 
       elements.push(liElement);
@@ -48,6 +51,7 @@ function createMyElements(element, num) {
       const menuItemContainer = document.createElement("div");
       const menuItemImg = document.createElement("img");
       const menuItemDesc = document.createElement("p");
+
       menuItemContainer.setAttribute(
         "class",
         "menu-items-item border border-radius-md"
@@ -85,7 +89,9 @@ function createMyElements(element, num) {
       }
 
       menuItemContainer.append(menuItemImg, menuItemDesc);
+
       eventAdder(menuItemContainer);
+
       elements.push(menuItemContainer);
     }
     // creating multiple about-us content elements
@@ -207,6 +213,7 @@ function navClick(e) {
   } else if (e.target.id === "home") {
     toggleElements(aboutUsElement, menuElement, homeElement);
   } else if (e.target.id === "menu" || headerBtn) {
+    // clicked order btn, color menu nav link
     if (headerBtn && navLink) {
       navLink.style.color = "gold";
       navLink.style.backgroundColor = "black";

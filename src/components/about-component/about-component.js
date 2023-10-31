@@ -7,7 +7,6 @@ function aboutComponent() {
    */
   const aboutSectionElement = document.createElement("section");
   const aboutUsContainer = document.createElement("div");
-  const aboutUsTitle = document.createElement("h2");
   const aboutUsContentContainer = document.createElement("div");
   const aboutUsContent = createMyElements("about-us", 2);
   const aboutUsFormTitle1 = document.createElement("h3");
@@ -29,7 +28,7 @@ function aboutComponent() {
     "class",
     "about-us-container flex flex-row flex-center border-sides"
   );
-  aboutUsTitle.setAttribute("class", "title border border-radius-md");
+
   aboutUsContentContainer.setAttribute(
     "class",
     "about-us-container flex flex-col flex-center bg-img-center border border-bottom-radius"
@@ -47,7 +46,6 @@ function aboutComponent() {
    *********************** Set component elements content ***************************************
    */
 
-  aboutUsTitle.textContent = "About Us";
   aboutUsFormTitle1.textContent = "Opening hours Mon-Sat: 8AM - 10:30PM";
   aboutUsFormAddress.textContent =
     "Address: 123 Placeholder St, City, State 11212, USA.";
@@ -65,11 +63,7 @@ function aboutComponent() {
     aboutUsFormTitle2,
     aboutUsFormElement
   );
-  aboutUsContainer.append(
-    aboutUsTitle,
-    ...aboutUsContent,
-    aboutUsContentContainer
-  );
+  aboutUsContainer.append(...aboutUsContent, aboutUsContentContainer);
   aboutSectionElement.append(aboutUsContainer);
   return aboutSectionElement;
 }
