@@ -46,7 +46,7 @@ function headingComponent() {
   /*
    *********************** Add component elements ***************************************
    */
-  eventAdder(headerBtn, "headerBtn");
+  eventAdder(headerBtn, "click");
   headerContentContainer.append(
     headerContentMsg1,
     headerContentHeading,

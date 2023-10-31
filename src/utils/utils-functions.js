@@ -40,7 +40,7 @@ function createMyElements(element, num) {
         navLink.textContent = "About";
       }
 
-      eventAdder(navLink, "nav");
+      eventAdder(navLink, "hover");
 
       liElement.appendChild(navLink);
 
@@ -90,7 +90,7 @@ function createMyElements(element, num) {
 
       menuItemContainer.append(menuItemImg, menuItemDesc);
 
-      eventAdder(menuItemContainer);
+      eventAdder(menuItemContainer, "hover");
 
       elements.push(menuItemContainer);
     }
@@ -184,15 +184,16 @@ function getSelection() {
 }
 // function for getting necessary elements
 function getMyElements() {
+  const menuHighlight = document.getElementById("menu-highlight");
   const navLinks = document.getElementsByClassName("nav-items-item-link");
   const homeElement = document.getElementById("home-page");
   const menuElement = document.getElementById("menu-view");
   const aboutUsElement = document.getElementById("about-us");
 
-  return { homeElement, menuElement, aboutUsElement, navLinks };
+  return { homeElement, menuElement, aboutUsElement, navLinks, menuHighlight };
 }
-// handler function for nav link click
-function navClick(e) {
+// handler function for clicks
+function clickHandler(e) {
   const { homeElement, menuElement, aboutUsElement, navLinks } =
     getMyElements();
 
@@ -238,16 +239,19 @@ function toggleElements(element1, element2, element3) {
 
 // function for adding events to elements
 function eventAdder(element, type = null) {
-  if (type === "nav" || type === "headerBtn") {
-    element.onclick = navClick;
-    if (type === "nav") {
-      element.onmouseenter = navHover;
-      element.onmouseleave = navHover;
+  if (type === "hover") {
+    type = "mouseenter mouseleave".split(" ");
+    if (element.className.includes("menu")) {
+      element.addEventListener(type[0], (e) => menuItemHover(e));
+      element.addEventListener(type[1], (e) => menuItemHover(e));
+    } else {
+      element.addEventListener(type[0], (e) => navHover(e));
+      element.addEventListener(type[1], (e) => navHover(e));
+      type = "click";
+      element.addEventListener(type, (e) => clickHandler(e));
     }
-  } else {
-    element.onmouseenter = menuItemHover;
-    element.onmouseleave = menuItemHover;
-  }
+  } else if (type === "click")
+    element.addEventListener(type, (e) => clickHandler(e));
 }
 // handler function for nav link hover
 function navHover(e) {
@@ -264,7 +268,7 @@ function navHover(e) {
 }
 // handler function for menu item hover
 function menuItemHover(e) {
-  const menuHighlight = document.getElementById("menu-highlight");
+  const { menuHighlight } = getMyElements();
   const element = e.target.id;
   const event = e.type;
   const text = "Menu Highlights";
